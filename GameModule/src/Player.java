@@ -8,11 +8,13 @@ public class Player extends GameObject{
 
     @Override
     public void tick() {
-
+        x += speedX;
+        y += speedY;
     }
 
     @Override
     public void render(Graphics g) {
-
+        g.setColor(Color.white);
+        g.fillRect(x,y,32,32);
     }
 }
