@@ -27,5 +27,16 @@ public class KeyboardInput extends KeyAdapter {
 
     public void keyReleased(KeyEvent event) {
         int key = event.getKeyCode();
+
+        for (int i = 0; i < handler.objects.size(); i++) {
+            GameObject tempObject = handler.objects.get(i);
+            if (tempObject.getId() == ID.Player) {
+                // these are the key events for the player
+                if (key == KeyEvent.VK_W) tempObject.setSpeedY(0);
+                if (key == KeyEvent.VK_A) tempObject.setSpeedX(0);
+                if (key == KeyEvent.VK_S) tempObject.setSpeedY(0);
+                if (key == KeyEvent.VK_D) tempObject.setSpeedX(0);
+            }
+        }
     }
 }
