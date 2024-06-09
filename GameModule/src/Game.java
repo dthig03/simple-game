@@ -8,11 +8,13 @@ public class Game extends Canvas implements Runnable {
     private boolean running = false;
     private Handler handler;
     public Game() {
-        new Window(WIDTH, HEIGHT, "A simple game", this);
-
         handler = new Handler();
 
-        handler.addObject(new Player(100,100,ID.Player));
+        this.addKeyListener(new KeyboardInput());
+
+        new Window(WIDTH, HEIGHT, "A simple game", this);
+
+        handler.addObject(new Player(WIDTH/2-32,HEIGHT/2-32,ID.Player));
     }
 
     public synchronized void start() {
