@@ -7,12 +7,15 @@ public class Game extends Canvas implements Runnable {
     private Thread thread;
     private boolean running = false;
     private Handler handler;
+    private HUD hud;
     public Game() {
         handler = new Handler();
 
         this.addKeyListener(new KeyboardInput(handler));
 
         new Window(WIDTH, HEIGHT, "A simple game", this);
+
+        hud = new HUD();
 
         handler.addObject(new Player(WIDTH/2-32,HEIGHT/2-32,ID.Player));
         handler.addObject(new Enemy(WIDTH/2-32,HEIGHT/2-32,ID.Enemy));
@@ -36,6 +39,7 @@ public class Game extends Canvas implements Runnable {
     // this will basically be the logic the game uses to run
     @Override
     public void run() {
+        this.requestFocus();
         long lastTime = System.nanoTime();
         double amountOfTicks = 60.0;
         double ns = 1000000000 / amountOfTicks;
@@ -78,6 +82,8 @@ public class Game extends Canvas implements Runnable {
         g.fillRect(0,0,WIDTH, HEIGHT);
 
         handler.render(g);
+
+        hud.render(g);
 
         g.dispose();
         bs.show();

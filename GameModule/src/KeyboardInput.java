@@ -38,5 +38,6 @@ public class KeyboardInput extends KeyAdapter {
                 if (key == KeyEvent.VK_D) tempObject.setSpeedX(0);
             }
         }
+        if (key == KeyEvent.VK_ESCAPE) System.exit(1); // this will kill the program when esc is pressed
     }
 }
