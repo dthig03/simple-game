@@ -15,6 +15,7 @@ public class Game extends Canvas implements Runnable {
         new Window(WIDTH, HEIGHT, "A simple game", this);
 
         handler.addObject(new Player(WIDTH/2-32,HEIGHT/2-32,ID.Player));
+        handler.addObject(new Enemy(WIDTH/2-32,HEIGHT/2-32,ID.Enemy));
     }
 
     public synchronized void start() {
