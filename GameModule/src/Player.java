@@ -10,6 +10,9 @@ public class Player extends GameObject{
     public void tick() {
         x += speedX;
         y += speedY;
+
+        x = Game.clamp(x, 0, Game.WIDTH - 48);
+        y = Game.clamp(y, 0, Game.HEIGHT - 70);
     }
 
     @Override
@@ -17,4 +20,5 @@ public class Player extends GameObject{
         g.setColor(Color.white);
         g.fillRect(x,y,32,32);
     }
+
 }
